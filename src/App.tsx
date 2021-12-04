@@ -3,6 +3,10 @@ import { FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Home from "./components/Home";
 import Controls from "./components/Controls";
+import EmployeeTable from "./components/EmployeeTable";
+import TableOfVat from "./components/TableOfVat";
+import DelegationTable from "./components/DelegationTable";
+import CounterpartData from "./components/CounterpartData";
 
 interface AppProps {}
 
@@ -23,16 +27,16 @@ const App: FunctionComponent<AppProps> = () => {
                                     <Link to="/controls">Różne kontrolki HTML</Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Tabela Pracowników</Link>
+                                    <Link to="/employee-table">Tabela Pracowników</Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Tabela Faktur VAT</Link>
+                                    <Link to="/table-of-vat">Tabela Faktur VAT</Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Tabela Delegacji BD</Link>
+                                    <Link to="/delegation-table">Tabela Delegacji BD</Link>
                                 </li>
                                 <li>
-                                    <Link to="/">Dane Kontrahentów</Link>
+                                    <Link to="/counterpart-data">Dane Kontrahentów</Link>
                                 </li>
                             </ul>
                         </nav>
@@ -44,6 +48,18 @@ const App: FunctionComponent<AppProps> = () => {
                             </Route>
                             <Route path="/controls">
                                 <Controls />
+                            </Route>
+                            <Route path="/employee-table">
+                                <EmployeeTable />
+                            </Route>
+                            <Route path="/table-of-vat">
+                                <TableOfVat />
+                            </Route>
+                            <Route path="/delegation-table">
+                                <DelegationTable />
+                            </Route>
+                            <Route path="/counterpart-data">
+                                <CounterpartData />
                             </Route>
                         </Switch>
                     </div>
