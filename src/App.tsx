@@ -1,6 +1,7 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import "./views/App.css";
 import Home from "./components/Home";
 import Controls from "./components/Controls";
 import EmployeeTable from "./components/EmployeeTable";
