@@ -8,3 +8,7 @@ export interface FormValues {
     apartmentNumber: string;
     comments: string;
 }
+
+export interface EmployeeListType {
+    [key: string]: string;
+}

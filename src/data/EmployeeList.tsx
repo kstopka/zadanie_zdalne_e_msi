@@ -1,14 +1,25 @@
 import { v4 as uuid } from "uuid";
-
-export const EmployeeList = [
+import { EmployeeListType } from "../App.d";
+export const MainEmployeeList: EmployeeListType[] = [
+    {
+        id: "ID",
+        lp: "LP",
+        name: "Imię",
+        surname: "Nazwisko",
+        position: "Stanowisko",
+        dateOfEmployment: "Data zatrudnienia",
+        vacationDays: "Ilość dni urlopowych",
+    },
+];
+export const EmployeeList: EmployeeListType[] = [
     {
         id: uuid(),
         lp: "1",
         name: "Kazimierz",
         surname: "Szefler",
         position: "Kierowca",
-        dateOfEmployment: "10.10.2010",
-        vacationDays: 20,
+        dateOfEmployment: "20.07.2015",
+        vacationDays: "15",
     },
     {
         id: uuid(),
@@ -16,8 +27,8 @@ export const EmployeeList = [
         name: "Janusz",
         surname: "Sroczyński",
         position: "Kierownik",
-        dateOfEmployment: "10.10.2010",
-        vacationDays: 20,
+        dateOfEmployment: "06.06.2012",
+        vacationDays: "20",
     },
     {
         id: uuid(),
@@ -25,8 +36,8 @@ export const EmployeeList = [
         name: "Ryszard",
         surname: "Wlazło",
         position: "Pracownik",
-        dateOfEmployment: "10.10.2010",
-        vacationDays: 20,
+        dateOfEmployment: "14.10.2010",
+        vacationDays: "18",
     },
     {
         id: uuid(),
@@ -35,7 +46,7 @@ export const EmployeeList = [
         surname: "Kotulski",
         position: "Dyrektor",
         dateOfEmployment: "10.10.2010",
-        vacationDays: 20,
+        vacationDays: "2",
     },
     {
         id: uuid(),
@@ -44,6 +55,6 @@ export const EmployeeList = [
         surname: "Kot",
         position: "Prezez",
         dateOfEmployment: "10.10.2010",
-        vacationDays: 20,
+        vacationDays: "26",
     },
 ];
