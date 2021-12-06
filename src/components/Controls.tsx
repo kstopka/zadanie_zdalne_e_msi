@@ -2,7 +2,7 @@ import * as React from "react";
 import { FunctionComponent } from "react";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
 import * as Yup from "yup";
-import "../views/Controls.css";
+import "../styles/Controls.css";
 import { FormValues } from "../App.d";
 
 interface ControlsProps {}
