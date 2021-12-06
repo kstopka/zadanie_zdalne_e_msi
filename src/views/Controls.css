@@ -11,4 +11,13 @@
 .controls form label {
   margin-top: 20px;
 }
+
+.controls form .error-message {
+  color: red;
+}
+
+.controls form button {
+  margin-top: 20px;
+  padding: 0 15px;
+}
 /*# sourceMappingURL=Controls.css.map */
