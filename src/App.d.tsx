@@ -21,3 +21,10 @@ export interface IVatList {
     nettoAmount: number;
     quantity: number;
 }
+
+export type DelegationInintialStateType = {
+    imBusy: boolean;
+    delegation: StringListType[];
+    errorMessage: string;
+    error: boolean;
+};

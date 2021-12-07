@@ -1,14 +1,24 @@
-import * as React from "react";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useLayoutEffect } from "react";
+import { StringListType } from "../App.d";
+import { useDelegationFromApi } from "../hooks/useDelegationFromApi";
+import TableRow from "./DynamicTable/TableRow";
+import "../styles/DelegationTable.css";
+import { CalculateTableWidth } from "./DynamicTable/CalculateTableWidth";
 
 interface DelegationTableProps {}
+const Loading = () => (
+    <div className="loading">
+        <h1>Loading...</h1>
+    </div>
+);
 
 const DelegationTable: FunctionComponent<DelegationTableProps> = () => {
-    return (
-        <div className="delegation-table">
-            <h1>Delegation Table DB</h1>
-        </div>
-    );
+    const { imBusy, delegation, errorMessage, error } = useDelegationFromApi();
+    const rows = delegation.map((item: StringListType) => <TableRow key={item.id} row={item} />);
+    useLayoutEffect(() => {
+        CalculateTableWidth(".delegation-table");
+    });
+    return <div className="delegation-table">{error ? errorMessage : rows}</div>;
 };
 
 export default DelegationTable;

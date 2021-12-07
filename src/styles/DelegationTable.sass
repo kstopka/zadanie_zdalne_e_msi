@@ -1,0 +1,30 @@
+$odd: white
+$even: white
+
+.delegation-table
+    display: flex   
+    flex-direction: column
+    justify-content: center
+    align-items: center
+
+    min-height: 200px
+    width: 100%
+    
+
+    background-color: blanchedalmond
+    color: #000
+
+    .row
+        display: flex
+        flex-direction: row
+        .column
+            display: flex
+            justify-content: center
+            align-items: center
+
+            padding: 15px
+            border: 2px solid black
+    .row:nth-child(odd)
+        background-color: $odd
+    .row:nth-child(even)
+        background-color: $even
