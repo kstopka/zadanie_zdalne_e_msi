@@ -1,7 +1,7 @@
-$odd: white
-$even: white
+$odd: yellow
+$even: green
 
-.delegation-table
+.table
     display: flex   
     flex-direction: column
     justify-content: center
@@ -17,14 +17,35 @@ $even: white
     .row
         display: flex
         flex-direction: row
+        background-color: white
         .column
+            // background-color: white
             display: flex
             justify-content: center
             align-items: center
 
             padding: 15px
             border: 2px solid black
+
+    .active
+        background-color: green
+    .vat
+        padding-bottom: 20px
+        label
+            padding-right: 20px 
+    .find-thousand
+        width: 200px
+        height: 50px
+        padding-bottom: 20px 
+        button
+            width: 100px
+.employee-table
     .row:nth-child(odd)
         background-color: $odd
     .row:nth-child(even)
         background-color: $even
+    input
+        width: 100px
+    label
+        padding-top: 15px
+        width: 100px

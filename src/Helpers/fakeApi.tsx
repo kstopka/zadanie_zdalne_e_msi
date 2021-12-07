@@ -1,5 +1,5 @@
-import { StringListType } from "../../App.d";
-import dataDelegation from "../../data/dataDelegationTable.json";
+import { StringListType } from "../App.d";
+import dataDelegation from "../data/dataDelegationTable.json";
 
 const mockedData = (success: boolean, timeout?: number): Promise<StringListType[]> =>
     new Promise((resolve, reject) => {

@@ -1,10 +1,10 @@
 import * as React from "react";
 import { FunctionComponent, useLayoutEffect } from "react";
 import { EmployeeList, MainEmployeeList } from "../data/EmployeeList";
-import "../styles/EmployeeTable.css";
-import TableRow from "./DynamicTable/TableRow";
-import { CalculateTableWidth } from "./DynamicTable/CalculateTableWidth";
-import { ChangeBackgroundColor } from "./Helpers/ChangeBackgroundColor";
+import "../styles/Table.css";
+import TableRow from "../DynamicTable/TableRow";
+import { CalculateTableWidth } from "../DynamicTable/CalculateTableWidth";
+import { ChangeRowsBackgroundColor } from "../Helpers/ChangeBackgroundColor";
 
 interface EmployeeTableProps {}
 
@@ -16,12 +16,12 @@ const EmployeeTable: FunctionComponent<EmployeeTableProps> = () => {
         CalculateTableWidth(".employee-table");
     });
     return (
-        <div className="employee-table">
+        <div className="employee-table table">
             {rows}
             <label htmlFor="color-odd">Wybierz kolor:</label>
-            <input type="color" name="odd" onChange={ChangeBackgroundColor} />
+            <input type="color" name="odd" onChange={ChangeRowsBackgroundColor} />
             <label htmlFor="color-even">Wybierz kolor:</label>
-            <input type="color" name="even" onChange={ChangeBackgroundColor} />
+            <input type="color" name="even" onChange={ChangeRowsBackgroundColor} />
         </div>
     );
 };

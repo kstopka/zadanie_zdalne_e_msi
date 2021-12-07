@@ -1,6 +1,6 @@
 import * as React from "react";
 import { FunctionComponent } from "react";
-import { StringListType } from "../../App.d";
+import { StringListType } from "../App.d";
 import TableColumn from "./TableColumn";
 
 interface TableRowProps {

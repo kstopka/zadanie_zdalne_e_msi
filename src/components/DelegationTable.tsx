@@ -1,9 +1,9 @@
 import { FunctionComponent, useLayoutEffect } from "react";
 import { StringListType } from "../App.d";
 import { useDelegationFromApi } from "../hooks/useDelegationFromApi";
-import TableRow from "./DynamicTable/TableRow";
-import "../styles/DelegationTable.css";
-import { CalculateTableWidth } from "./DynamicTable/CalculateTableWidth";
+import TableRow from "../DynamicTable/TableRow";
+import "../styles/Table.css";
+import { CalculateTableWidth } from "../DynamicTable/CalculateTableWidth";
 
 interface DelegationTableProps {}
 const Loading = () => (
@@ -18,7 +18,7 @@ const DelegationTable: FunctionComponent<DelegationTableProps> = () => {
     useLayoutEffect(() => {
         CalculateTableWidth(".delegation-table");
     });
-    return <div className="delegation-table">{error ? errorMessage : rows}</div>;
+    return <div className="delegation-table table">{error ? errorMessage : rows}</div>;
 };
 
 export default DelegationTable;

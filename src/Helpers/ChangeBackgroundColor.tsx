@@ -1,4 +1,4 @@
-export const ChangeBackgroundColor = (e: { target: { value: any; name: any } }) => {
+export const ChangeRowsBackgroundColor = (e: { target: { value: any; name: any } }) => {
     const employeeTable: HTMLDivElement | null = document.querySelector(".employee-table");
     if (employeeTable === null) {
         return new Error("Employee Table does not exist");

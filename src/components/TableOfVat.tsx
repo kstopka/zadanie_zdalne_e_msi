@@ -1,12 +1,11 @@
 import * as React from "react";
 import { FunctionComponent, useEffect, useState } from "react";
-import TableRow from "./DynamicTable/TableRow";
-import { MainVatList } from "../data/VatList";
-import "../styles/TableOfVat.css";
-import { VatList } from "../data/VatList";
-import { createVatList } from "./Helpers/CreateVatList";
-import { CalculateTableWidth } from "./DynamicTable/CalculateTableWidth";
-import { ChangeNettoBackgroundColor } from "./Helpers/ChangeNettoBackgroundColor";
+import TableRow from "../DynamicTable/TableRow";
+import { MainVatList, VatList } from "../data/VatList";
+import "../styles/Table.css";
+import { createVatList } from "../Helpers/CreateVatList";
+import { CalculateTableWidth } from "../DynamicTable/CalculateTableWidth";
+import { ChangeNettoBackgroundColor } from "../Helpers/ChangeNettoBackgroundColor";
 
 interface TableOfVatProps {}
 
@@ -26,7 +25,7 @@ const TableOfVat: FunctionComponent<TableOfVatProps> = () => {
         CalculateTableWidth(".table-of-vat");
     });
     return (
-        <div className="table-of-vat">
+        <div className="table-of-vat table">
             <div className="vat">
                 <label htmlFor="vat">Wybierz oprocentowanie VAT</label>
                 <select name="vat" onChange={(e) => handleVatChange(e)}>
