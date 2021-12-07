@@ -9,6 +9,15 @@ export interface FormValues {
     comments: string;
 }
 
-export interface EmployeeListType {
+export interface StringListType {
     [key: string]: string;
+}
+
+export interface IVatList {
+    id: string;
+    lp: string;
+    description: string;
+    mpk: string;
+    nettoAmount: number;
+    quantity: number;
 }

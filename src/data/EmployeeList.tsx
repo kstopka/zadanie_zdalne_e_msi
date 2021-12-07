@@ -1,6 +1,6 @@
 import { v4 as uuid } from "uuid";
-import { EmployeeListType } from "../App.d";
-export const MainEmployeeList: EmployeeListType[] = [
+import { StringListType } from "../App.d";
+export const MainEmployeeList: StringListType[] = [
     {
         id: "ID",
         lp: "LP",
@@ -11,7 +11,7 @@ export const MainEmployeeList: EmployeeListType[] = [
         vacationDays: "Ilość dni urlopowych",
     },
 ];
-export const EmployeeList: EmployeeListType[] = [
+export const EmployeeList: StringListType[] = [
     {
         id: uuid(),
         lp: "1",

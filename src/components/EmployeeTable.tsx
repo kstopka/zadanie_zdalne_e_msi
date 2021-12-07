@@ -2,18 +2,18 @@ import * as React from "react";
 import { FunctionComponent, useLayoutEffect } from "react";
 import { EmployeeList, MainEmployeeList } from "../data/EmployeeList";
 import "../styles/EmployeeTable.css";
-import EmployeeTableRow from "./EmployeeTable/EmployeeTableRow";
-import { CalculateTableWidth } from "./EmployeeTable/CalculateTableWidth";
-import { ChangeBackgroundColor } from "./EmployeeTable/ChangeBackgroundColor";
+import TableRow from "./DynamicTable/TableRow";
+import { CalculateTableWidth } from "./DynamicTable/CalculateTableWidth";
+import { ChangeBackgroundColor } from "./Helpers/ChangeBackgroundColor";
 
 interface EmployeeTableProps {}
 
 const EmployeeTable: FunctionComponent<EmployeeTableProps> = () => {
     const concatArrays = MainEmployeeList.concat(EmployeeList);
-    const rows = concatArrays.map((item, index) => <EmployeeTableRow key={index} row={item} />);
+    const rows = concatArrays.map((item, index) => <TableRow key={index} row={item} />);
 
     useLayoutEffect(() => {
-        CalculateTableWidth();
+        CalculateTableWidth(".employee-table");
     });
     return (
         <div className="employee-table">

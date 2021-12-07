@@ -1,19 +1,21 @@
-export const CalculateTableWidth = () => {
-    const employeeTable: HTMLDivElement | null = document.querySelector(".employee-table");
-    if (employeeTable === null) {
-        return new Error("Employee Table does not exist");
+export const CalculateTableWidth = (className: string) => {
+    const mainTable: HTMLDivElement | null = document.querySelector(className);
+    if (mainTable === null) {
+        return new Error("Table does not exist");
     }
 
-    const allDivsOfRowNL: NodeListOf<HTMLDivElement> = employeeTable.querySelectorAll("div.row");
+    const allDivsOfRowNL: NodeListOf<HTMLDivElement> = mainTable.querySelectorAll("div.row");
     if (allDivsOfRowNL === null) {
         throw new Error("Rows of table do not exist");
     }
     const allDivsOfRow: HTMLDivElement[] = Array.from(allDivsOfRowNL);
 
     let widthColumns: number[] = [];
-
     for (let divOfRow of allDivsOfRow) {
         const allDivsOfColumnNL: NodeListOf<HTMLDivElement> = divOfRow.querySelectorAll("div.column");
+        if (allDivsOfColumnNL === null) {
+            throw new Error("Columns of table do not exist");
+        }
         const allDivsOfColumn: HTMLDivElement[] = Array.from(allDivsOfColumnNL);
         const length = allDivsOfColumn.length;
 

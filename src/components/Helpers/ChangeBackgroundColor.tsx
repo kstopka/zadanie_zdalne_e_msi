@@ -1,4 +1,3 @@
-// export const ChangeBackgroundColor = (color: string, option: string) => {
 export const ChangeBackgroundColor = (e: { target: { value: any; name: any } }) => {
     const employeeTable: HTMLDivElement | null = document.querySelector(".employee-table");
     if (employeeTable === null) {
