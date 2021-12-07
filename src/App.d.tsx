@@ -8,6 +8,15 @@ export interface FormValues {
     apartmentNumber: string;
     comments: string;
 }
+export interface CounterpartFormValues {
+    nip: number;
+    regon: number;
+    name: string;
+    vat: boolean;
+    street: string;
+    homeNumber: string;
+    apartmentNumber: string;
+}
 
 export interface StringListType {
     [key: string]: string;
@@ -22,9 +31,14 @@ export interface IVatList {
     quantity: number;
 }
 
-export type DelegationInintialStateType = {
+export type InintialStateType = {
     imBusy: boolean;
-    delegation: StringListType[];
+    responseData: StringListType[];
     errorMessage: string;
     error: boolean;
 };
+
+// export type CounterpartContextType = {
+//     counterpart: StringListType[];
+//     setToken: React.Dispatch<React.SetStateAction<boolean>>;
+// };

@@ -1,6 +1,6 @@
 import { useEffect, useReducer } from "react";
-import { StringListType, DelegationInintialStateType } from "../App.d";
-import mockedData from "../Helpers/fakeApi";
+import { InintialStateType, StringListType } from "../App.d";
+// import mockedDataDelegation from "../Helpers/fakeApi";
 
 const asyncWrapperForPromiseWithConnectedState = async (
     promiseWrapper: { (): Promise<StringListType[]>; (): any },
@@ -23,24 +23,7 @@ const asyncWrapperForPromiseWithConnectedState = async (
     }
 };
 
-const initialState: DelegationInintialStateType = {
-    imBusy: false,
-    delegation: [
-        {
-            id: "",
-            lp: "",
-            nameSurname: "",
-            comingDate: "",
-            leavingDate: "",
-            comingLocation: "",
-            leavingLocation: "",
-        },
-    ],
-    errorMessage: "",
-    error: false,
-};
-
-const delegationReducer = (state: any, action: { type: string; value?: string }) => {
+const reducer = (state: any, action: { type: string; value?: string }) => {
     switch (action.type) {
         case "setBusy": {
             return {
@@ -56,11 +39,11 @@ const delegationReducer = (state: any, action: { type: string; value?: string })
                 error: true,
             };
         }
-        case "setDelegation": {
+        case "setResponseData": {
             return {
                 ...state,
                 imBusy: true,
-                delegation: action.value,
+                responseData: action.value,
             };
         }
     }
@@ -82,29 +65,29 @@ const setError =
             type: "setError",
             value: payload,
         });
-const setDelegation =
+const setResponseData =
     (dispatch: {
         (value: { type: string; value?: string | undefined }): void;
         (arg0: { type: string; value: any }): any;
     }) =>
     (payload: any) =>
         dispatch({
-            type: "setDelegation",
+            type: "setResponseData",
             value: payload,
         });
 
-export const useDelegationFromApi = () => {
-    const [state, dispatch] = useReducer(delegationReducer, initialState);
-    const { imBusy, delegation, errorMessage, error } = state;
+export const useResponseDataFromApi = (initialState: InintialStateType, mockedDataDelegation: any) => {
+    const [state, dispatch] = useReducer(reducer, initialState);
+    const { imBusy, responseData, errorMessage, error } = state;
 
     useEffect(() => {
         if (!imBusy) {
-            asyncWrapperForPromiseWithConnectedState(() => mockedData(true), {
+            asyncWrapperForPromiseWithConnectedState(() => mockedDataDelegation(true), {
                 setForBusy: setBusy(dispatch),
                 setForError: setError(dispatch),
-                setForResponse: setDelegation(dispatch),
+                setForResponse: setResponseData(dispatch),
             });
         }
     });
-    return { imBusy, delegation, errorMessage, error };
+    return { imBusy, responseData, errorMessage, error };
 };

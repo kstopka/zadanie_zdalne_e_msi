@@ -20,7 +20,6 @@ const ControlsSchema = Yup.object({
 const renderError = (message: string) => <p className="error-message">{message}</p>;
 
 const Controls: FunctionComponent<ControlsProps> = () => {
-    const handleSubmit = () => {};
     return (
         <div className="controls">
             <Formik
@@ -40,7 +39,7 @@ const Controls: FunctionComponent<ControlsProps> = () => {
                     setSubmitting(false);
                 }}
             >
-                <Form onSubmit={handleSubmit}>
+                <Form>
                     <label htmlFor="nip">NIP</label>
                     <Field type="number" name="nip" />
                     <ErrorMessage name="nip" render={renderError} />

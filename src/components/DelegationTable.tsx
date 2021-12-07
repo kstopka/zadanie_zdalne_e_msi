@@ -1,9 +1,11 @@
 import { FunctionComponent, useLayoutEffect } from "react";
 import { StringListType } from "../App.d";
-import { useDelegationFromApi } from "../hooks/useDelegationFromApi";
+import { useResponseDataFromApi } from "../hooks/useResponseDataFromApi";
 import TableRow from "../DynamicTable/TableRow";
 import "../styles/Table.css";
 import { CalculateTableWidth } from "../DynamicTable/CalculateTableWidth";
+import { delegationInitialState } from "../Helpers/InitialStates";
+import { mockedDataDelegation } from "../Helpers/fakeApi";
 
 interface DelegationTableProps {}
 const Loading = () => (
@@ -13,8 +15,11 @@ const Loading = () => (
 );
 
 const DelegationTable: FunctionComponent<DelegationTableProps> = () => {
-    const { imBusy, delegation, errorMessage, error } = useDelegationFromApi();
-    const rows = delegation.map((item: StringListType) => <TableRow key={item.id} row={item} />);
+    const { imBusy, responseData, errorMessage, error } = useResponseDataFromApi(
+        delegationInitialState,
+        mockedDataDelegation
+    );
+    const rows = responseData.map((item: StringListType) => <TableRow key={item.id} row={item} />);
     useLayoutEffect(() => {
         CalculateTableWidth(".delegation-table");
     });

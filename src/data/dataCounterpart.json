@@ -1,0 +1,24 @@
+{
+    "counterpart": [
+        {
+            "id": "ID",
+            "nip": "NIP",
+            "regon": "REGON",
+            "name": "Nazwa",
+            "vat": "Czy płatnik VAT?",
+            "street": "Ulica",
+            "homeNumber": "Numer domu",
+            "apartmentNumber": "Numer mieszkania"
+        },
+        {
+            "id": "qasdadsfa",
+            "nip": "1234567890",
+            "regon": "123456789",
+            "name": "Nazwa",
+            "vat": "TAK",
+            "street": "Ulica",
+            "homeNumber": "Numer domu",
+            "apartmentNumber": "Numer mieszkania"
+        }
+    ]
+}
