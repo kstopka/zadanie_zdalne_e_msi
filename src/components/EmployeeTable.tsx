@@ -1,4 +1,3 @@
-import * as React from "react";
 import { FunctionComponent, useLayoutEffect } from "react";
 import { EmployeeList, MainEmployeeList } from "../data/EmployeeList";
 import "../styles/Table.css";

@@ -1,6 +1,5 @@
 import { useEffect, useReducer } from "react";
 import { InintialStateType, StringListType } from "../App.d";
-// import mockedDataDelegation from "../Helpers/fakeApi";
 
 const asyncWrapperForPromiseWithConnectedState = async (
     promiseWrapper: { (): Promise<StringListType[]>; (): any },

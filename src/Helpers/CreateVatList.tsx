@@ -1,5 +1,4 @@
 import { IVatList, StringListType } from "../App.d";
-// import { VatList } from "../../data/VatList";
 
 export const createVatList = (VatList: IVatList, vat: number) => {
     const { id, lp, description, mpk, nettoAmount, quantity } = VatList;

@@ -1,4 +1,4 @@
-import { FunctionComponent, Key, useLayoutEffect } from "react";
+import { FunctionComponent, Key, useEffect, useLayoutEffect } from "react";
 import { useResponseDataFromApi } from "../hooks/useResponseDataFromApi";
 import { counterpartInitialState } from "../Helpers/InitialStates";
 import { StringListType, CounterpartFormValues } from "../App.d";
@@ -8,20 +8,10 @@ import "../styles/Table.css";
 import "../styles/Counterpart.css";
 import { mockedDataCounterpart } from "../Helpers/fakeApi";
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from "formik";
-import * as Yup from "yup";
-import { idText } from "typescript";
+import { renderError, CounterpartSchema } from "../Helpers/FormHelpers";
+import { AddCounterpart } from "../Helpers/AddCounterpart";
 
 interface CounterpartDataProps {}
-
-const ControlsSchema = Yup.object({
-    nip: Yup.string().length(10, "NIP musi zawierać dokładnie 10 liczb").required("NIP jest wymagany"),
-    regon: Yup.string().length(9, "REGON musi zawierać dokładnie 9 liczb").required("REGON jest wymagany"),
-    name: Yup.string().required("Nazwa jest wymagana"),
-    street: Yup.string().required("Ulica jest wymagana"),
-    homeNumber: Yup.string().required("Numer domu jest wymagany"),
-});
-
-const renderError = (message: string) => <p className="error-message">{message}</p>;
 
 const CounterpartData: FunctionComponent<CounterpartDataProps> = () => {
     const { imBusy, responseData, errorMessage, error } = useResponseDataFromApi(
@@ -29,9 +19,7 @@ const CounterpartData: FunctionComponent<CounterpartDataProps> = () => {
         mockedDataCounterpart
     );
     const handleEditClick = () => {};
-    const handleDeleteClick = () => {
-        console.log(`ok`);
-    };
+    const handleDeleteClick = () => {};
     const rows = responseData.map((item: StringListType, index: Key) => (
         <div>
             <TableRow key={index} row={item} />
@@ -41,11 +29,9 @@ const CounterpartData: FunctionComponent<CounterpartDataProps> = () => {
     ));
     useLayoutEffect(() => {
         CalculateTableWidth(".counterpart-data");
-        console.log(responseData);
     });
-    // const handleSubmit = (e: { preventDefault: () => void }) => {
-    //     e.preventDefault();
-    // };
+
+    useEffect(() => {}, []);
 
     return (
         <div className="counterpart-data table">
@@ -59,9 +45,10 @@ const CounterpartData: FunctionComponent<CounterpartDataProps> = () => {
                     homeNumber: "",
                     apartmentNumber: "",
                 }}
-                validationSchema={ControlsSchema}
+                validationSchema={CounterpartSchema}
                 onSubmit={(values: CounterpartFormValues, { setSubmitting }: FormikHelpers<CounterpartFormValues>) => {
-                    alert(JSON.stringify(values, null, 2));
+                    AddCounterpart(values, responseData);
+                    // alert(JSON.stringify(values, null, 2));
                     setSubmitting(false);
                 }}
             >
