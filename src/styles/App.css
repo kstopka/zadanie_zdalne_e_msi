@@ -1,3 +1,11 @@
+.home h1 {
+  padding: 50px;
+}
+
+.home p {
+  padding: 0 50px;
+}
+
 .wrapper {
   background-color: #333;
 }
